@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class BillingDetailsDto {
 
 
-    private Long accountNumber;
+    private String accountNumber;
 
-    private Long tariff;
+    private String tariff;
 }

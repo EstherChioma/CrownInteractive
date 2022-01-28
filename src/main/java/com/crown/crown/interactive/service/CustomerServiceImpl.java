@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService{
             return "new customer saved successfully";
 
         } else {
-            throw new CustomerAlreadyExistException("a customer with email " + customerDto + "already exist!");
+            throw new CustomerAlreadyExistException("a customer with email " + customerDto.getEmail() + "already exist!");
         }
     }
 
@@ -55,6 +55,12 @@ public class CustomerServiceImpl implements CustomerService{
         List<Customer> customerList = customerRepository.findAll();
         return customerList;
     }
+    @Override
+    public Customer findByCustomerId(Long id) {
+
+        return customerRepository.findById(id).orElse(null);
+    }
+    }
 
 
-}
+

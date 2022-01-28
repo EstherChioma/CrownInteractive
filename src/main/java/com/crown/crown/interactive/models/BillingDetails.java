@@ -21,10 +21,14 @@ public class BillingDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long accountNumber;
+    private String accountNumber;
 
-    private Long tariff;
+    private String tariff;
 
 
 
-}
+
+
+        }
+
+

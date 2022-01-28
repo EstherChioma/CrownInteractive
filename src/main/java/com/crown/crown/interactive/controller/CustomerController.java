@@ -1,6 +1,7 @@
 package com.crown.crown.interactive.controller;
 
 import com.crown.crown.interactive.exceptions.CustomerAlreadyExistException;
+import com.crown.crown.interactive.exceptions.CustomerDoesNotException;
 import com.crown.crown.interactive.models.Customer;
 import com.crown.crown.interactive.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +34,12 @@ public class CustomerController {
 
     }
 
-    @GetMapping("/getCustomer")
-    public Optional<Customer> getCustomerById(@PathVariable Long id){
-        return customerService.getOneCustomerById(id);
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findCustomerById (@PathVariable Integer id){
+        Customer customer = customerService.findByCustomerId(1L);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
     @GetMapping("/retrieveAll")
